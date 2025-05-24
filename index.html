@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA TEAM LOT SIZE CALCULATOR</title>
+    <style>
+        :root {
+            --primary-color: #0d2b45;
+            --secondary-color: #00c2a8;
+            --accent-color: #00c2a8;
+            --background-color: #f8f9fa;
+            --card-background: white;
+            --text-color: #0d2b45;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(13, 43, 69, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .calculator-container {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 0;
+            width: 90%;
+            max-width: 550px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a4a6e 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header .logo {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .emoji {
+            font-size: 1.3rem;
+        }
+
+        input, select {
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 194, 168, 0.2);
+            background-color: white;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .result {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 194, 168, 0.1) 0%, rgba(13, 43, 69, 0.05) 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .result h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lot-size {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-top: 0.8rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                width: 95%;
+                margin: 1rem auto;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header .logo {
+                width: 100px;
+            }
+            
+            .calculator-form {
+                padding: 1.5rem;
+            }
+            
+            .lot-size {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <img src="mega-logo.jpg" alt="MEGA Team Logo" class="logo">
+            <h1>MEGA TEAM LOT SIZE CALCULATOR</h1>
+        </div>
+        <div class="calculator-form">
+            <div class="input-group">
+                <label for="capital">
+                    <span class="emoji">💰</span> Capital:
+                </label>
+                <input
+                    id="capital"
+                    type="number"
+                    value="1000"
+                    min="0"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="risk">
+                    <span class="emoji">⚠️</span> Risk (%):
+                </label>
+                <input
+                    id="risk"
+                    type="number"
+                    value="2"
+                    min="0"
+                    step="0.1"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="stopLoss">
+                    <span class="emoji">🎯</span> Stop Loss (pips):
+                </label>
+                <input
+                    id="stopLoss"
+                    type="number"
+                    value="50"
+                    min="0"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="marketType">
+                    <span class="emoji">🔄</span> Market Type:
+                </label>
+                <select id="marketType">
+                    <option value="forex">Forex (1 pip = 0.0001)</option>
+                    <option value="gold">Gold (1 pip = 0.01)</option>
+                </select>
+            </div>
+
+            <div class="result">
+                <h2>
+                    <span class="emoji">📈</span> Recommended Lot Size:
+                </h2>
+                <div id="lotSizeResult" class="lot-size">0.04 lots</div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© MEGA Team Trading Solutions</p>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const capitalInput = document.getElementById('capital');
+        const riskInput = document.getElementById('risk');
+        const stopLossInput = document.getElementById('stopLoss');
+        const marketTypeSelect = document.getElementById('marketType');
+        const lotSizeResult = document.getElementById('lotSizeResult');
+
+        // Add event listeners to all inputs
+        capitalInput.addEventListener('input', calculateLotSize);
+        riskInput.addEventListener('input', calculateLotSize);
+        stopLossInput.addEventListener('input', calculateLotSize);
+        marketTypeSelect.addEventListener('change', calculateLotSize);
+
+        // Calculate lot size function
+        function calculateLotSize() {
+            // Get values from inputs
+            const capital = parseFloat(capitalInput.value) || 0;
+            const riskPercentage = parseFloat(riskInput.value) || 0;
+            const stopLoss = parseFloat(stopLossInput.value) || 0;
+            const marketType = marketTypeSelect.value;
+
+            // Check for valid inputs
+            if (capital <= 0 || riskPercentage <= 0 || stopLoss <= 0) {
+                lotSizeResult.textContent = '0 lots';
+                return;
+            }
+
+            // Calculate risk amount in currency
+            const riskAmount = capital * (riskPercentage / 100);
+            
+            // Determine pip value based on market type
+            const pipValue = marketType === "forex" ? 0.0001 : 0.01;
+            
+            // Calculate lot size
+            // For Forex: 1 standard lot = 100,000 units of base currency
+            // For Gold: 1 lot = 100 oz, but using 1000 as multiplier for XAU/USD
+            const multiplier = marketType === "forex" ? 100000 : 1000;
+            const calculatedLotSize = riskAmount / (stopLoss * pipValue * multiplier);
+            
+            // Round to 2 decimal places
+            const roundedLotSize = Math.round(calculatedLotSize * 100) / 100;
+            
+            // Update the result
+            lotSizeResult.textContent = roundedLotSize + ' lots';
+        }
+
+        // Calculate initial lot size
+        calculateLotSize();
+    </script>
+</body>
+</html>
